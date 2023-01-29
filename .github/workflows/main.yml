@@ -74,7 +74,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull juliya1989/infra_actions
+            sudo docker pull juliya1989/infra_actions:latest
             #остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
             sudo docker run --rm -d -p 5000:5000 juliya1989/infra_actions
