@@ -72,9 +72,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo docker pull juliya1989/infra_actions:latest
-            #остановка всех контейнеров
+            # Выполняет pull образа с DockerHub
+            sudo docker pull juliya1989/infra_actions
+            # остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 juliya1989/infra_actions
+            sudo docker run --rm -d -p 5000:5000 juliya1989/infra_actions 
