@@ -74,8 +74,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            sudo systemctl unmask docker
-            systemctl start docker
+            sudo service --status-all
+            sudo service docker start
             sudo docker pull juliya1989/infra_actions
             #остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
